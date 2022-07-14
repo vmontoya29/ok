@@ -1,0 +1,13 @@
+#colores
+fondo_negro="#000000"
+fondo_blanco="#FFFFFF"
+fondo_aqua="#00C2CB"
+fondo_negro="#000000"
+fondo_blanco="#FFFFFF"
+fondo_aqua="#00C2CB"
+fondo_oro="#FFD700"
+fondo_trigo="#F5DEB3"
+fondo_vara="#EEE8AA"
+fondo_gran="#78281F"
+fondo_nar="#FF5722"
+fondo_rojo="#CC0000"

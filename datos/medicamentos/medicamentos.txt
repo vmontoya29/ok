@@ -1,0 +1,4 @@
+1;0;m;2;2022/4/8;4:05:AM;
+2;0;m2;5;2022/03/14;3:00:PM;
+3;0;ddddddd;Ingrese un número para la cantidad;Ingresar: año/mes/día;Ingresar: hora:minutos:AM o PM;
+4;0;x;Ingrese un número para la cantidad;Ingresar: año/mes/día;Ingresar: hora:minutos:AM o PM;
