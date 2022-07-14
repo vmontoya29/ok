@@ -48,7 +48,7 @@ class Ventas(tk.Toplevel):
         frame2 = tk.Frame(canvas,width='1000',height='469', bg='#ffffff', relief=tk.FLAT)
         canvas.create_window(700, 300, window=frame2)
 
-        self.fondo = tk.PhotoImage(file="imagenes/1.png")
+        self.fondo = tk.PhotoImage(file="imagenes/medicamento.png")
         fondo_label = tk.Label(frame2, image=self.fondo)
         fondo_label.place(bordermode=tk.INSIDE)
 
