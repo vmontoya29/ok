@@ -14,8 +14,8 @@ class Inventario(tk.Toplevel):
         self.construirse()
 
     def construirse(self):
-        self.title("Geriatic Advance")
-        self.geometry("1280x650+1+-3")
+        self.title("Gestion Obleas Mars")
+        self.geometry("1260x650+1+-3")
         self.resizable(width=True, height=True)
         '''
         canvas = tk.Canvas(self, width=400, height=400)
@@ -36,7 +36,7 @@ class Inventario(tk.Toplevel):
         frame = tk.Frame(self)
         frame.pack(fill=tk.BOTH, expand=1)
 
-        canvas = tk.Canvas(frame, bg='#ffffff')
+        canvas = tk.Canvas(frame, bg='#f1dab0')
         canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
 
         scrollbar = tk.Scrollbar(frame, orient=tk.VERTICAL, command=canvas.yview)
@@ -46,19 +46,19 @@ class Inventario(tk.Toplevel):
         canvas.bind('<Configure>', lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
 
         frame2 = tk.Frame(canvas,width='1000',height='469', bg='#ffffff', relief=tk.FLAT)
-        canvas.create_window(700, 300, window=frame2)
+        canvas.create_window(620, 300, window=frame2)
 
-        self.fondo = tk.PhotoImage(file="imagenes/medicamento.png")
+        self.fondo = tk.PhotoImage(file="imagenes/24.png")
         fondo_label = tk.Label(frame2, image=self.fondo)
         fondo_label.place(bordermode=tk.INSIDE)
 
         self.cabecera = tk.Label(canvas,
                                  text="Usuario conectado: " + Sesion.usuario,
-                                 bg=fondo_blanco,
-                                 fg=fondo_aqua,
+                                 bg=fondo_fondo,
+                                 fg=fondo_negro,
                                  font=("Comc sans MS ", 10, "bold")
                                  )
-        canvas.create_window(1000, 5, window=self.cabecera)
+        canvas.create_window(600, 20, window=self.cabecera)
 
         '''
         widget = tk.Label(canvas, text='Spam', fg='white', bg='black')
@@ -71,7 +71,7 @@ class Inventario(tk.Toplevel):
                                  text="⬅",
                                  cursor="hand2",
                                  command=self.regresar,
-                                 bg=fondo_aqua,
+                                 bg=fondo_fondo,
                                  width=3,
                                  foreground=fondo_negro,
                                  relief="flat",
@@ -88,38 +88,38 @@ class Inventario(tk.Toplevel):
 
         self.entradaMedicamento = tk.Entry(frame2,
                                       textvariable=self.medicamento,
-                                      relief="flat",
+                                      relief="solid",
                                       bg=fondo_blanco,
                                       font=("Comc sans MS ", 12, "bold"))
         self.entradaMedicamento.place(height=45, width=360)
-        self.entradaMedicamento.place(x=287, y=132)
+        self.entradaMedicamento.place(x=287, y=140)
 
         self.entradaCantidad = tk.Entry(frame2,
                                            textvariable=self.cantidad,
-                                           relief="flat",
+                                           relief="solid",
                                            bg=fondo_blanco,
                                            font=("Comc sans MS ", 12, "bold"))
         self.entradaCantidad.place(height=45, width=360)
-        self.entradaCantidad.place(x=287, y=190)
+        self.entradaCantidad.place(x=287, y=200)
 
         self.entradaFecha = tk.Entry(frame2,
                                         textvariable=self.fecha,
-                                        relief="flat",
+                                        relief="solid",
                                         bg=fondo_blanco,
-                                        fg=fondo_aqua,
+                                        fg=fondo_fondo,
                                         font=("Comc sans MS ", 12, "bold"))
         self.entradaFecha.place(height=45, width=360)
-        self.entradaFecha.place(x=287, y=247)
+        self.entradaFecha.place(x=287, y=257)
         self.entradaFecha.insert(0, "año/mes/día  0000/00/00")
 
         self.entradaHora = tk.Entry(frame2,
                                      textvariable=self.hora,
-                                     relief="flat",
+                                     relief="solid",
                                      bg=fondo_blanco,
-                                     fg=fondo_aqua,
+                                     fg=fondo_fondo,
                                      font=("Comc sans MS ", 12, "bold"))
         self.entradaHora.place(height=45, width=360)
-        self.entradaHora.place(x=287, y=304)
+        self.entradaHora.place(x=287, y=319)
         self.entradaHora.insert(0, "hora:minutos:AM/PM  00:00:AM/PM")
 
         # Botones
@@ -127,7 +127,7 @@ class Inventario(tk.Toplevel):
                                        text="Eliminar",
                                        cursor="hand2",
                                        # command=self.regresar,
-                                       bg=fondo_aqua,
+                                       bg=fondo_fondo,
                                        width=7,
                                        foreground=fondo_negro,
                                        relief="flat",
@@ -139,7 +139,7 @@ class Inventario(tk.Toplevel):
                                         text="Ingresar",
                                         cursor="hand2",
                                         command=self.ingresarMedicamento,
-                                        bg=fondo_aqua,
+                                        bg=fondo_fondo,
                                         width=7,
                                         foreground=fondo_negro,
                                         relief="flat",
@@ -151,7 +151,7 @@ class Inventario(tk.Toplevel):
                                        text="Consultar",
                                        cursor="hand2",
                                        # command=self.regresar,
-                                       bg=fondo_aqua,
+                                       bg=fondo_fondo,
                                        width=7,
                                        foreground=fondo_negro,
                                        relief="flat",
@@ -163,7 +163,7 @@ class Inventario(tk.Toplevel):
                                          text="Actualizar",
                                          cursor="hand2",
                                          # command=self.regresar,
-                                         bg=fondo_aqua,
+                                         bg=fondo_fondo,
                                          width=7,
                                          foreground=fondo_negro,
                                          relief="flat",
@@ -175,40 +175,40 @@ class Inventario(tk.Toplevel):
         # Código para mostrar el listado
         self.LabelId = tk.Label(canvas,
                                  text="ID",
-                                 bg=fondo_negro,
-                                 fg=fondo_blanco,
+                                 bg=fondo_fondo,
+                                 fg=fondo_negro,
                                  font=("Comc sans MS ", 20, "bold")
                                  )
         canvas.create_window(100, 600, window=self.LabelId)
 
         self.LabelMedicamento = tk.Label(canvas,
-                                text="MEDICAMENTO",
-                                bg=fondo_negro,
-                                fg=fondo_blanco,
+                                text="PRODUCTO",
+                                bg=fondo_fondo,
+                                fg=fondo_negro,
                                 font=("Comc sans MS ", 20, "bold")
                                 )
         canvas.create_window(300, 600, window=self.LabelMedicamento)
 
         self.LabelCantidad = tk.Label(canvas,
                                          text="CANTIDAD",
-                                         bg=fondo_negro,
-                                         fg=fondo_blanco,
+                                         bg=fondo_fondo,
+                                         fg=fondo_negro,
                                          font=("Comc sans MS ", 20, "bold")
                                          )
         canvas.create_window(600, 600, window=self.LabelCantidad)
 
         self.LabelFecha = tk.Label(canvas,
                                       text="FECHA",
-                                      bg=fondo_negro,
-                                      fg=fondo_blanco,
+                                      bg=fondo_fondo,
+                                      fg=fondo_negro,
                                       font=("Comc sans MS ", 20, "bold")
                                       )
         canvas.create_window(800, 600, window=self.LabelFecha)
 
         self.LabelHora = tk.Label(canvas,
                                    text="HORA",
-                                   bg=fondo_negro,
-                                   fg=fondo_blanco,
+                                   bg=fondo_fondo,
+                                   fg=fondo_negro,
                                    font=("Comc sans MS ", 20, "bold")
                                    )
         canvas.create_window(1000, 600, window=self.LabelHora)
@@ -229,7 +229,7 @@ class Inventario(tk.Toplevel):
                 self.datoId = tk.Label(canvas,
                                         text=medicamento[0],
                                         bg=fondo_blanco,
-                                        fg=fondo_aqua,
+                                        fg=fondo_fondo,
                                         font=("Comc sans MS ", 15)
                                         )
                 canvas.create_window(100, distanciaVertical, window=self.datoId)
@@ -237,7 +237,7 @@ class Inventario(tk.Toplevel):
                 self.datoMedicamento = tk.Label(canvas,
                                                  text=medicamento[2],
                                                  bg=fondo_blanco,
-                                                 fg=fondo_aqua,
+                                                 fg=fondo_fondo,
                                                  font=("Comc sans MS ", 15)
                                                  )
                 canvas.create_window(300, distanciaVertical, window=self.datoMedicamento)
@@ -245,7 +245,7 @@ class Inventario(tk.Toplevel):
                 self.datoCantidad = tk.Label(canvas,
                                               text=medicamento[3],
                                               bg=fondo_blanco,
-                                              fg=fondo_aqua,
+                                              fg=fondo_fondo,
                                               font=("Comc sans MS ", 15)
                                               )
                 canvas.create_window(600, distanciaVertical, window=self.datoCantidad)
@@ -253,7 +253,7 @@ class Inventario(tk.Toplevel):
                 self.datoFecha = tk.Label(canvas,
                                            text=medicamento[5],
                                            bg=fondo_blanco,
-                                           fg=fondo_aqua,
+                                           fg=fondo_fondo,
                                            font=("Comc sans MS ", 15)
                                            )
                 canvas.create_window(800, distanciaVertical, window=self.datoFecha)
@@ -261,7 +261,7 @@ class Inventario(tk.Toplevel):
                 self.datoHora = tk.Label(canvas,
                                           text=medicamento[5],
                                           bg=fondo_blanco,
-                                          fg=fondo_aqua,
+                                          fg=fondo_fondo,
                                           font=("Comc sans MS ", 15)
                                           )
                 canvas.create_window(1000, distanciaVertical, window=self.datoHora)
@@ -285,19 +285,19 @@ class Inventario(tk.Toplevel):
     def ingresarMedicamento(self):
 
         # Código para validar la entrada de medicamentos
-        if not self.entradaMedicamento.get() or self.entradaMedicamento.get() == "Ingrese el Medicamento":
+        if not self.entradaMedicamento.get() or self.entradaMedicamento.get() == "Ingrese el Vendedor":
             self.entradaMedicamento.delete(0, tk.END)
-            self.entradaMedicamento.insert(0, "Ingrese el Medicamento")
+            self.entradaMedicamento.insert(0, "Ingrese el Vendedor")
             self.entradaMedicamento.config(bg="gray")
 
 
         # Código para validar la entrada de la cantidad
         if (not self.entradaCantidad.get()
-            or self.entradaCantidad.get() == "Ingrese la Cantidad"
+            or self.entradaCantidad.get() == "Ingrese el Kit Vendido"
             or self.entradaCantidad.get() == "Ingrese una cantidad mayor a 0"
         ):
             self.entradaCantidad.delete(0, tk.END)
-            self.entradaCantidad.insert(0, "Ingrese la Cantidad")
+            self.entradaCantidad.insert(0, "Ingrese el Kit")
             self.entradaCantidad.config(bg="gray")
 
         try:
@@ -307,7 +307,7 @@ class Inventario(tk.Toplevel):
                 self.entradaCantidad.config(bg="gray")
         except ValueError:
             self.entradaCantidad.delete(0, tk.END)
-            self.entradaCantidad.insert(0, "Ingrese un número para la cantidad")
+            self.entradaCantidad.insert(0, "Ingrese un número De Kit")
             self.entradaCantidad.config(bg="gray")
 
 
@@ -388,9 +388,9 @@ class Inventario(tk.Toplevel):
                 )
                 f.close()
 
-                messagebox.showinfo(message="El medicamento:\n" + self.entradaMedicamento.get() + ".\n"
+                messagebox.showinfo(message="Su Venta:\n" + self.entradaMedicamento.get() + ".\n"
                                     "Ha sido registrado exitosamente.\n",
-                                    title="Medicamento ingresado")
+                                    title="la Venta ha ingresado")
 
                 # Limpiar el formulario
 
@@ -411,7 +411,7 @@ class Inventario(tk.Toplevel):
                 self.entradaHora.config(bg="white")
 
                 self.destroy()
-                self.ventana_principal.ir_Ventana_Medicamentos()
+                self.ventana_principal()
 
 
 
@@ -424,6 +424,9 @@ class Inventario(tk.Toplevel):
                 print("Exception type: ", exception_type)
                 print("File name: ", filename)
                 print("Line number: ", line_number)
+
+
+
 
 
 
